@@ -21,6 +21,6 @@ def upload_file_menu(request):
     
 def get_menu_audio(request, lang, name):
 	if request.method == "GET":
-		menuAudio = MenuAudio.objects.filter(language=lang, audio_name=name).values().first()
+		menuAudio = MenuAudio.objects.get(language=lang, audio_name=name)
 		return HttpResponse(menuAudio.audio, headers={'"Content-Type"="audio/mpeg"'})
 					

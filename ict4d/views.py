@@ -11,7 +11,7 @@ def upload_file_menu(request):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             if(request.POST["audio_type"] == "menu"):
-                handle_uploaded_file_menu(request.FILES["file"], request.POST["lang"], request.POST["audio_name"])
+                handle_uploaded_file_menu(form.cleaned_data['file'].file.read(), request.POST["lang"], request.POST["audio_name"])
             else:
                  handle_uploaded_file_farmer(request.FILES["file"])
             return HttpResponseRedirect("/success/url/")

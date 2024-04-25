@@ -21,5 +21,5 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('menuAudio/<str:lang>/<str:name>/', views.get_menu_audio),
-    path('uploadfile/<str:lang>/<str:name>/<str:type>/', views.upload_file_menu)
+    path('uploadfile', views.upload_file_menu)
 ]

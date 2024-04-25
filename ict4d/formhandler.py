@@ -7,9 +7,6 @@ def handle_uploaded_file_farmer(f, lang, file_name):
 	handle_uploaded_file(f, lang, file_name, 'farmer')
 
 def handle_uploaded_file(f, lang, file_name, model):
-	binaryFileData = ''
-	for chunk in f.chunks :
-		binaryFileData += chunk
 	if(model == 'menu'):
 		ma = MenuAudio()
 		ma.language = lang

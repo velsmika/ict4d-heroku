@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-CSFR_TRUSTED_ORIGINS = ["https://ict4d-2454f1ef329b.herokuapp.com"]
+CSRF_TRUSTED_ORIGINS = ["https://ict4d-2454f1ef329b.herokuapp.com"]
 
 
 # Application definition

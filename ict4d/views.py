@@ -22,7 +22,7 @@ def upload_file_menu(request):
 def get_menu_audio(request, lang, name):
     if request.method == "GET":
          menuAudio = MenuAudio.objects.get(language=lang, audio_name=name)
-         response = HttpResponse(menuAudio.audio, content_type='audio/mpeg')
+         response = HttpResponse(menuAudio.audio, content_type='audio/wav')
          response['Content-Length'] = len(menuAudio.audio)
          return response
 		

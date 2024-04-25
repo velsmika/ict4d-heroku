@@ -11,7 +11,7 @@ def handle_uploaded_file(f, lang, file_name, model):
 		ma = MenuAudio()
 		ma.language = lang
 		ma.audio_name = file_name
-		ma.audio = f
+		ma.audio = f.read()
 		ma.save()
 	# elif(model == 'farmer'):
 	# 	fa = FarmerAudio()

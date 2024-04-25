@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('menuAudio/<string:lang>/<string:name>', views.get_menu_audio),
+    path('uploadfile/<string:lang>/<string:name>/<string:type>', views.upload_file_menu)
 ]

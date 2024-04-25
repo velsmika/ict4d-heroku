@@ -17,7 +17,7 @@ def upload_file_menu(request):
             return HttpResponseRedirect("/success/url/")
     else:
         form = UploadFileForm()
-    return render(request, "templates/ict4d/upload.html", {"form": form})
+    return render(request, "upload.html", {"form": form})
     
 def get_menu_audio(request, lang, name):
 	if request.method == "GET":

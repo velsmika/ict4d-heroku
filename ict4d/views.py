@@ -20,7 +20,10 @@ def upload_file_menu(request):
     return render(request, "upload.html", {"form": form})
     
 def get_menu_audio(request, lang, name):
-	if request.method == "GET":
-		menuAudio = MenuAudio.objects.get(language=lang, audio_name=name)
-		return HttpResponse(menuAudio.audio, headers={'"Content-Type"="audio/mpeg"'})
+    if request.method == "GET":
+         menuAudio = MenuAudio.objects.get(language=lang, audio_name=name)
+         response = HttpResponse(menuAudio.audio, content_type='audio/mpeg')
+         response['Content-Length'] = len(menuAudio.audio)
+         return response
+		
 					

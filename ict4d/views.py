@@ -1,9 +1,9 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.db import models
 from .forms import UploadFileForm
-from ict4d.models import MenuAudio, FarmerAudio
 from .formhandler import handle_uploaded_file_menu, handle_uploaded_file_farmer
 from django.shortcuts import render
+from ict4ddb.models import MenuAudio
 
 
 def upload_file_menu(request, lang, name, type):

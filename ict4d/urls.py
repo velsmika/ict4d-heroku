@@ -20,6 +20,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('menuAudio/<string:lang>/<string:name>', views.get_menu_audio),
-    path('uploadfile/<string:lang>/<string:name>/<string:type>', views.upload_file_menu)
+    path('menuAudio/<str:lang>/<str:name>/', views.get_menu_audio),
+    path('uploadfile/<str:lang>/<str:name>/<str:type>/', views.upload_file_menu)
 ]

@@ -14,10 +14,9 @@ def upload_file_menu(request):
         if form.is_valid():
             if(request.POST["audio_type"] == "menu"):
                 handle_uploaded_file_menu(form.cleaned_data['file'].file.read(), request.POST["lang"], request.POST["audio_name"])
-            return HttpResponseRedirect("/success/url/")
     else:
         form = UploadFileForm()
-    return render(request, "upload.html", {"form": form})
+        return render(request, "upload.html", {"form": form})
 
 def upload_file_farmer(request):
     if request.method == "POST":
@@ -47,7 +46,7 @@ def get_menu_audio(request, lang, name):
          return response
 		
 #get number of items in farmeraudio for lang
-def get_amount_farmer_audio_seedtype(request, lang, seedtype):
+def get_amount_farmer_audio_seedtype(request, lang):
     if request.method == "GET":
         if lang == 'nl':
             jr = {"amount":FarmerAudioNL.objects.filter(language=lang).count()}

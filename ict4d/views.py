@@ -3,7 +3,7 @@ from django.db import models
 from .forms import UploadFileForm
 from .formhandler import handle_uploaded_file_menu, handle_uploaded_file_farmer
 from django.shortcuts import render
-from ict4ddb.models import MenuAudio, FarmerAudioDutch, FarmerAudioEnglish
+from ict4ddb.models import MenuAudio, FarmerAudioNL, FarmerAudioEN
 
 from datetime import datetime
 
@@ -22,7 +22,7 @@ def upload_file_menu(request):
 def upload_file_farmer(request):
     if request.method == "POST":
         if request.POST["lang"] == "nl":
-            fa = FarmerAudioDutch()
+            fa = FarmerAudioNL()
             fa.audio = request.FILES["file"].read()
             fa.audio_name = "fa-" + datetime.now().strftime("%m-%d-%Y %H:%M:%S")
             fa.language = request.POST["lang"]
@@ -30,7 +30,7 @@ def upload_file_farmer(request):
             fa.amount = request.POST["amount"]
             fa.save()
         elif request.POST["lang"] == "en":
-            fa = FarmerAudioEnglish()
+            fa = FarmerAudioEN()
             fa.audio = request.FILES["file"].read()
             fa.audio_name = "fa-" + datetime.now().strftime("%m-%d-%Y %H:%M:%S")
             fa.language = request.POST["lang"]
@@ -50,17 +50,17 @@ def get_menu_audio(request, lang, name):
 def get_amount_farmer_audio_seedtype(request, lang, seedtype):
     if request.method == "GET":
         if lang == 'nl':
-            jr = {"amount":FarmerAudioDutch.objects.filter(language=lang).count()}
+            jr = {"amount":FarmerAudioNL.objects.filter(language=lang).count()}
             return JsonResponse(jr)
         elif lang == 'en':
-            jr = {"amount":FarmerAudioEnglish.objects.filter(language=lang).count()}
+            jr = {"amount":FarmerAudioEN.objects.filter(language=lang).count()}
     
 def get_farmer_audio(request, lang, id):
     if request.method == "GET":
         if lang == "nl":
-            fa = FarmerAudioDutch.objects.get(id=id)
+            fa = FarmerAudioNL.objects.get(id=id)
             return HttpResponse(fa.audio, content_type='audio/mpeg')
         elif lang == "en":
-            fa = FarmerAudioEnglish.objects.get(id=id)
+            fa = FarmerAudioEN.objects.get(id=id)
             return HttpResponse(fa.audio, content_type='audio/mpeg')
 					

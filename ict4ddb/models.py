@@ -17,7 +17,7 @@ class MenuAudio(models.Model):
         db_table = 'menu_audio'
         app_label = 'ict4ddb'
 
-class FarmerAudioDutch(models.Model):
+class FarmerAudioNL(models.Model):
     language = models.CharField(max_length=2, blank=True, null=True)
     audio_name = models.CharField(max_length=15, blank=True, null=True)
     audio = models.BinaryField(blank=True, null=True)
@@ -26,11 +26,11 @@ class FarmerAudioDutch(models.Model):
     phonenumber = models.CharField(max_length=20, blank=True, null=True)
     
     class Meta:
-        managed = False
-        db_table = 'farmer_audio_dutch'
+        managed = True
+        db_table = 'farmer_audio_nl'
         app_label = 'ict4ddb'
 
-class FarmerAudioEnglish(models.Model):
+class FarmerAudioEN(models.Model):
     language = models.CharField(max_length=2, blank=True, null=True)
     audio_name = models.CharField(max_length=15, blank=True, null=True)
     audio = models.BinaryField(blank=True, null=True)
@@ -39,6 +39,6 @@ class FarmerAudioEnglish(models.Model):
     phonenumber = models.CharField(max_length=20, blank=True, null=True)
     
     class Meta:
-        managed = False
-        db_table = 'farmer_audio_english'
+        managed = True
+        db_table = 'farmer_audio_en'
         app_label = 'ict4ddb'

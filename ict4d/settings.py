@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'ict4d.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': '',
         'NAME': '',
         'USER': '',
         'PASSWORD': '',

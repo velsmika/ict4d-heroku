@@ -13,9 +13,3 @@ def handle_uploaded_file(f, lang, file_name, model):
 		ma.audio_name = file_name
 		ma.audio = f
 		ma.save()
-	# elif(model == 'farmer'):
-	# 	fa = FarmerAudio()
-	# 	fa.language = lang
-	# 	fa.audio_name = file_name
-	# 	fa.audio = binaryFileData
-	# 	fa.save()

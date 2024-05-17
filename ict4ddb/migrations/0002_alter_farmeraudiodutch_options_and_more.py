@@ -10,12 +10,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterModelOptions(
-            name='farmeraudiodutch',
-            options={'managed': True},
-        ),
-        migrations.AlterModelOptions(
-            name='farmeraudioenglish',
-            options={'managed': True},
-        ),
+    
     ]

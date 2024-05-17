@@ -17,20 +17,33 @@ class MenuAudio(models.Model):
         db_table = 'menu_audio'
         app_label = 'ict4ddb'
 
-class FarmerAudioNL(models.Model):
-    language = models.CharField(max_length=2, blank=True, null=True)
-    audio_name = models.CharField(max_length=15, blank=True, null=True)
-    audio = models.BinaryField(blank=True, null=True)
+class FAD(models.Model):
     seedtype = models.CharField(max_length=20, blank=True, null=True)
     amount = models.IntegerField()
     phonenumber = models.CharField(max_length=20, blank=True, null=True)
+    language = models.CharField(max_length=2, blank=True, null=True)
+    audio_name = models.CharField(max_length=15, blank=True, null=True)
+    audio = models.BinaryField(blank=True, null=True)
     
     class Meta:
         managed = True
-        db_table = 'farmer_audio_nl'
+        db_table = 'audio_dutch'
         app_label = 'ict4ddb'
 
-class FarmerAudioEN(models.Model):
+class FAE(models.Model):
+    seedtype = models.CharField(max_length=20, blank=True, null=True)
+    amount = models.IntegerField()
+    phonenumber = models.CharField(max_length=20, blank=True, null=True)
+    language = models.CharField(max_length=2, blank=True, null=True)
+    audio_name = models.CharField(max_length=15, blank=True, null=True)
+    audio = models.BinaryField(blank=True, null=True)
+    
+    class Meta:
+        managed = True
+        db_table = 'audio_english'
+        app_label = 'ict4ddb'
+
+class FarmerAudioDutch(models.Model):
     language = models.CharField(max_length=2, blank=True, null=True)
     audio_name = models.CharField(max_length=15, blank=True, null=True)
     audio = models.BinaryField(blank=True, null=True)
@@ -40,5 +53,18 @@ class FarmerAudioEN(models.Model):
     
     class Meta:
         managed = True
-        db_table = 'farmer_audio_en'
+        db_table = 'farmer_audio_dutch'
+        app_label = 'ict4ddb'
+
+class FarmerAudioEnglish(models.Model):
+    language = models.CharField(max_length=2, blank=True, null=True)
+    audio_name = models.CharField(max_length=15, blank=True, null=True)
+    audio = models.BinaryField(blank=True, null=True)
+    seedtype = models.CharField(max_length=20, blank=True, null=True)
+    amount = models.IntegerField()
+    phonenumber = models.CharField(max_length=20, blank=True, null=True)
+    
+    class Meta:
+        managed = True
+        db_table = 'farmer_audio_english'
         app_label = 'ict4ddb'

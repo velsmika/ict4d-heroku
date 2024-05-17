@@ -10,36 +10,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='FarmerAudioEN',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('language', models.CharField(blank=True, max_length=2, null=True)),
-                ('audio_name', models.CharField(blank=True, max_length=15, null=True)),
-                ('audio', models.BinaryField(blank=True, null=True)),
-                ('seedtype', models.CharField(blank=True, max_length=20, null=True)),
-                ('amount', models.IntegerField()),
-                ('phonenumber', models.CharField(blank=True, max_length=20, null=True)),
-            ],
-            options={
-                'db_table': 'farmer_audio_en',
-                'managed': True,
-            },
-        ),
-        migrations.CreateModel(
-            name='FarmerAudioNL',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('language', models.CharField(blank=True, max_length=2, null=True)),
-                ('audio_name', models.CharField(blank=True, max_length=15, null=True)),
-                ('audio', models.BinaryField(blank=True, null=True)),
-                ('seedtype', models.CharField(blank=True, max_length=20, null=True)),
-                ('amount', models.IntegerField()),
-                ('phonenumber', models.CharField(blank=True, max_length=20, null=True)),
-            ],
-            options={
-                'db_table': 'farmer_audio_nl',
-                'managed': True,
-            },
-        )
+       
+
     ]

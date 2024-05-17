@@ -25,7 +25,7 @@ def upload_file_farmer(request):
             if request.POST["lang"] == "nl":
                 fa = FarmerAudioNL()
                 fa.audio = form.cleaned_data['file'].file.read()
-                fa.audio_name = "fa-" + datetime.now().strftime("%m-%d-%Y %H:%M:%S")
+                fa.audio_name = "fa-" + datetime.now().strftime("%m-%d-%H:%M:")
                 fa.language = request.POST["lang"]
                 fa.seedtype = request.POST["seedtype"]
                 fa.amount = request.POST["amount"]
@@ -33,7 +33,7 @@ def upload_file_farmer(request):
             elif request.POST["lang"] == "en":
                 fa = FarmerAudioEN()
                 fa.audio = form.cleaned_data['file'].file.read()
-                fa.audio_name = "fa-" + datetime.now().strftime("%m-%d-%Y %H:%M:%S")
+                fa.audio_name = "fa-" + datetime.now().strftime("%m-%d-%H:%M")
                 fa.language = request.POST["lang"]
                 fa.seedtype = request.POST["seedtype"]
                 fa.amount = request.POST["amount"]

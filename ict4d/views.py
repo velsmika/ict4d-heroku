@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.db import models
-from .forms import UploadFileForm
+from .forms import UploadFileForm, UploadFarmerAudioForm
 from .formhandler import handle_uploaded_file_menu, handle_uploaded_file_farmer
 from django.shortcuts import render
 from ict4ddb.models import MenuAudio, FarmerAudioNL, FarmerAudioEN
@@ -20,22 +20,27 @@ def upload_file_menu(request):
 
 def upload_file_farmer(request):
     if request.method == "POST":
-        if request.POST["lang"] == "nl":
-            fa = FarmerAudioNL()
-            fa.audio = request.FILES["file"].read()
-            fa.audio_name = "fa-" + datetime.now().strftime("%m-%d-%Y %H:%M:%S")
-            fa.language = request.POST["lang"]
-            fa.seedtype = request.POST["seedtype"]
-            fa.amount = request.POST["amount"]
-            fa.save()
-        elif request.POST["lang"] == "en":
-            fa = FarmerAudioEN()
-            fa.audio = request.FILES["file"].read()
-            fa.audio_name = "fa-" + datetime.now().strftime("%m-%d-%Y %H:%M:%S")
-            fa.language = request.POST["lang"]
-            fa.seedtype = request.POST["seedtype"]
-            fa.amount = request.POST["amount"]
-            fa.save()
+        form = UploadFarmerAudioForm(request.POST, request.FILES)
+        if form.is_valid():
+            if request.POST["lang"] == "nl":
+                fa = FarmerAudioNL()
+                fa.audio = form.cleaned_data['file'].file.read()
+                fa.audio_name = "fa-" + datetime.now().strftime("%m-%d-%Y %H:%M:%S")
+                fa.language = request.POST["lang"]
+                fa.seedtype = request.POST["seedtype"]
+                fa.amount = request.POST["amount"]
+                fa.save()
+            elif request.POST["lang"] == "en":
+                fa = FarmerAudioEN()
+                fa.audio = form.cleaned_data['file'].file.read()
+                fa.audio_name = "fa-" + datetime.now().strftime("%m-%d-%Y %H:%M:%S")
+                fa.language = request.POST["lang"]
+                fa.seedtype = request.POST["seedtype"]
+                fa.amount = request.POST["amount"]
+                fa.save()
+    else:
+        form = UploadFarmerAudioForm()
+        return render(request, "upload.html", {"form": form})
 
 #get file audio's for the menu    
 def get_menu_audio(request, lang, name):

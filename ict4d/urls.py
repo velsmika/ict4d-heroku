@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('menuAudio/<str:lang>/<str:name>/', views.get_menu_audio),
     path('uploadfile', views.upload_file_menu),
+    path('uploadfilefarmer', views.upload_file_farmer),
     path('farmeraudio/<str:lang>/', views.get_amount_farmer_audio_seedtype),
     path('farmeraudio/<str:lang>/<int:id>', views.get_farmer_audio),
 ]

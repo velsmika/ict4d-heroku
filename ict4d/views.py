@@ -53,6 +53,7 @@ def get_amount_farmer_audio_seedtype(request, lang):
             return JsonResponse(jr)
         elif lang == 'en':
             jr = {"amount":FarmerAudioEN.objects.filter(language=lang).count()}
+            return JsonResponse(jr)
     
 def get_farmer_audio(request, lang, id):
     if request.method == "GET":
